@@ -1,0 +1,28 @@
+{
+  "storage": {
+    "type": "json",
+    "data_dir": "data"
+  },
+  "database": {
+    "mongodb": {
+      "enabled": false,
+      "connection_string": "mongodb://localhost:27017/",
+      "database_name": "telegram_support_bot"
+    },
+    "postgresql": {
+      "enabled": false,
+      "host": "localhost",
+      "port": 5432,
+      "database": "telegram_support_bot",
+      "user": "postgres",
+      "password": ""
+    }
+  },
+  "super_admin": {
+    "user_ids": []
+  },
+  "bot": {
+    "default_language": "en",
+    "max_bots_per_user": 5
+  }
+}
