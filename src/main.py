@@ -11,11 +11,10 @@ from pathlib import Path
 
 # Ensure the parent directory is in the path for proper imports
 # This allows both `python -m src.main` and `python src/main.py` to work
-if __name__ == '__main__':
-    current_dir = Path(__file__).resolve().parent
-    parent_dir = current_dir.parent
-    if str(parent_dir) not in sys.path:
-        sys.path.insert(0, str(parent_dir))
+current_dir = Path(__file__).resolve().parent
+parent_dir = current_dir.parent
+if str(parent_dir) not in sys.path:
+    sys.path.insert(0, str(parent_dir))
 
 from telegram.ext import Application, ApplicationBuilder
 from dotenv import load_dotenv
