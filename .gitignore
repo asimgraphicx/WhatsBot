@@ -55,3 +55,4 @@ config/config.local.json
 # Test files
 test_bot.py
 /tmp/
+demo.py
