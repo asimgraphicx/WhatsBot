@@ -3,16 +3,26 @@ Main entry point for the Telegram Multi-Tenant Support Bot.
 """
 
 import os
+import sys
 import json
 import logging
 import asyncio
 from pathlib import Path
+
+# Ensure the parent directory is in the path for proper imports
+# This allows both `python -m src.main` and `python src/main.py` to work
+if __name__ == '__main__':
+    current_dir = Path(__file__).resolve().parent
+    parent_dir = current_dir.parent
+    if str(parent_dir) not in sys.path:
+        sys.path.insert(0, str(parent_dir))
+
 from telegram.ext import Application, ApplicationBuilder
 from dotenv import load_dotenv
 
-from database import DatabaseManager
-from bot import BotManager
-from handlers import main_bot_handlers
+from src.database import DatabaseManager
+from src.bot import BotManager
+from src.handlers import main_bot_handlers
 
 # Configure logging
 logging.basicConfig(
