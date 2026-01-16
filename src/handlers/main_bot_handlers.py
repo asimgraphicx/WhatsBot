@@ -362,29 +362,3 @@ def get_handlers(bot_manager, database, config):
         CommandHandler('togglewelcome', handlers.togglewelcome_command),
         CommandHandler('admin', handlers.admin_command),
     ]
-
-
-# Helper functions for bot manager
-def get_start_handler():
-    """Placeholder - handlers are created with full context."""
-    pass
-
-def get_setwelcome_handler():
-    """Placeholder - handlers are created with full context."""
-    pass
-
-def get_togglewelcome_handler():
-    """Placeholder - handlers are created with full context."""
-    pass
-
-def get_mybot_handler():
-    """Placeholder - handlers are created with full context."""
-    pass
-
-def get_admin_handler():
-    """Placeholder - handlers are created with full context."""
-    pass
-
-def get_token_handler():
-    """Placeholder - handlers are created with full context."""
-    pass

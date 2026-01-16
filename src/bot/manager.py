@@ -23,34 +23,22 @@ class BotManager:
         self.main_bot_token: Optional[str] = None
         self.main_bot: Optional[Application] = None
     
-    async def initialize_main_bot(self, token: str, handlers_module) -> Application:
+    async def initialize_main_bot(self, handlers_list) -> Application:
         """
         Initialize the main bot that handles bot registration and super admin functions.
         
         Args:
-            token: Main bot token
-            handlers_module: Module containing command handlers
+            handlers_list: List of command handlers to add to the bot
             
         Returns:
             The main bot Application instance
         """
-        self.main_bot_token = token
-        
-        # Build the application
-        app = ApplicationBuilder().token(token).build()
-        
-        # Add handlers
-        app.add_handler(handlers_module.get_start_handler())
-        app.add_handler(handlers_module.get_setwelcome_handler())
-        app.add_handler(handlers_module.get_togglewelcome_handler())
-        app.add_handler(handlers_module.get_mybot_handler())
-        app.add_handler(handlers_module.get_admin_handler())
-        
-        # Add message handler for bot token input
-        app.add_handler(handlers_module.get_token_handler())
-        
-        self.main_bot = app
-        return app
+        # Note: This method is not currently used as main.py handles initialization directly.
+        # Kept for potential future use or refactoring.
+        raise NotImplementedError(
+            "Main bot initialization is handled directly in main.py. "
+            "Use main_bot_handlers.get_handlers() to get the handler list."
+        )
     
     async def register_user_bot(self, bot_token: str, owner_id: int) -> bool:
         """
