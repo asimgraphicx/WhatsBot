@@ -9,8 +9,10 @@ import logging
 import asyncio
 from pathlib import Path
 
-# Ensure the parent directory is in the path for proper imports
-# This allows both `python -m src.main` and `python src/main.py` to work
+# Ensure the parent directory is in the path for proper imports.
+# This allows both `python -m src.main` and `python src/main.py` to work.
+# The parent directory of 'src' (i.e., the project root) needs to be in sys.path
+# so that `from src.database import ...` style imports can resolve correctly.
 current_dir = Path(__file__).resolve().parent
 parent_dir = current_dir.parent
 if str(parent_dir) not in sys.path:
